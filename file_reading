@@ -1,0 +1,6 @@
+#CHANGE PATH HERE
+path ="/Users/Logan/Desktop/Logan/Smith/Junior Year/Advanced Programming/Coding Challenge VIII/text.txt"
+f=open(path)
+line=readline(f)
+print(line)
+close(f)
