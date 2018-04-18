@@ -1,7 +1,12 @@
 #CHANGE PATH HERE
-path ="/Users/Logan/Desktop/Logan/Smith/Junior Year/Advanced Programming/Coding Challenge VIII/text.txt"
+path ="/Users/Logan/Desktop/Logan/Smith/Junior Year/Advanced Programming/Coding Challenge VIII/man_from_mars.txt"
 f=open(path)
-line=readline(f)
+stuff = readstring(f)
+words = split(stuff)
+i=0
+for i in 1:10
+    print(words[i]," | ")
+end
 print(line)
 close(f)
 # let's see if this works
