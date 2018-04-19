@@ -1,16 +1,23 @@
 #CHANGE PATH HERE
 path ="/Users/Logan/Desktop/Logan/Smith/Junior Year/Advanced Programming/Coding Challenge VIII/man_from_mars.txt"
+#open file and read contents into array of words
 f=open(path)
 stuff = readstring(f)
 words = split(stuff)
+
+#counters for words, sentences
 numwords=0
 numsentences=0
-wordcounts=Dict()
+wordcounts=Dict() #keep track of counts of each words
+
+#loop through each word in the book
 for word in words
     numwords=numwords+1
+    #if word ends in .!? its the end of a sentence
     if(word[endof(word)]=='!' || word[endof(word)]=='.' || word[endof(word)]=='?')
         numsentences=numsentences+1
     end
+    #strip punctuation off of word and add it to dictionary
     sword=strip(word, ['.','!','?'])
     if(haskey(wordcounts, sword))
         wordcounts[sword]=wordcounts[sword]+1
@@ -18,8 +25,12 @@ for word in words
         wordcounts[sword]=1
     end
 end
+
+#sort the counts by the values (high to low)
 orderedcounts=sort(collect(wordcounts), by = tuple -> last(tuple), rev=true)
+
+#print results
 println(numWords)
 println(numSentences)
-println(orderedcounts[1:20])
+println(orderedcounts[1][1])
 close(f)
