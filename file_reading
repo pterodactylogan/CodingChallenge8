@@ -3,10 +3,23 @@ path ="/Users/Logan/Desktop/Logan/Smith/Junior Year/Advanced Programming/Coding 
 f=open(path)
 stuff = readstring(f)
 words = split(stuff)
-i=0
-for i in 1:10
-    print(words[i]," | ")
+numwords=0
+numsentences=0
+wordcounts=Dict()
+for word in words
+    numwords=numwords+1
+    if(word[endof(word)]=='!' || word[endof(word)]=='.' || word[endof(word)]=='?')
+        numsentences=numsentences+1
+    end
+    sword=strip(word, ['.','!','?'])
+    if(haskey(wordcounts, sword))
+        wordcounts[sword]=wordcounts[sword]+1
+    else
+        wordcounts[sword]=1
+    end
 end
-print(line)
+orderedcounts=sort(collect(wordcounts), by = tuple -> last(tuple), rev=true)
+println(numWords)
+println(numSentences)
+println(orderedcounts[1:20])
 close(f)
-# let's see if this works
